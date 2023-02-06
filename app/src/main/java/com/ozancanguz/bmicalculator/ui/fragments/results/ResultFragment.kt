@@ -1,4 +1,4 @@
-package com.ozancanguz.bmicalculator.ui.fragments.bmi
+package com.ozancanguz.bmicalculator.ui.fragments.results
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.ozancanguz.bmicalculator.R
 
 
-class BmiFragment : Fragment() {
+class ResultFragment : Fragment() {
 
 
     override fun onCreateView(
@@ -16,7 +16,7 @@ class BmiFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_bmi, container, false)
+        return inflater.inflate(R.layout.fragment_result, container, false)
     }
 
 

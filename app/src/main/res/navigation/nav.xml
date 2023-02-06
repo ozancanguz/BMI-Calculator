@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/bmiFragment">
 
+    <fragment
+        android:id="@+id/bmiFragment"
+        android:name="com.ozancanguz.bmicalculator.ui.fragments.bmi.BmiFragment"
+        android:label="Bmi Calculator"
+        tools:layout="@layout/fragment_bmi" />
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.ozancanguz.bmicalculator.ui.fragments.results.ResultFragment"
+        android:label="Result"
+        tools:layout="@layout/fragment_result" />
 </navigation>
