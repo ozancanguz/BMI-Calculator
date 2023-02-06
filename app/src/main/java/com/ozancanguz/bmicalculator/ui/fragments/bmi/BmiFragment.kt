@@ -6,17 +6,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ozancanguz.bmicalculator.R
+import com.ozancanguz.bmicalculator.databinding.FragmentBmiBinding
 
 
 class BmiFragment : Fragment() {
+
+    private var _binding: FragmentBmiBinding? = null
+
+    private val binding get() = _binding!!
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_bmi, container, false)
+        _binding = FragmentBmiBinding.inflate(inflater, container, false)
+        val view = binding.root
+
+
+
+        return view
     }
 
 
