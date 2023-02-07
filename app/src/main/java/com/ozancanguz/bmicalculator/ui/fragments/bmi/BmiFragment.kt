@@ -35,10 +35,22 @@ class BmiFragment : Fragment() {
           calculateBmi()
 
 
+        changeAge()
+
 
         return view
     }
 
+    private fun changeAge() {
+        var age:Int=17
+        binding.increaseage.setOnClickListener {
+            binding.agetvv.text= age++.toString()
+        }
+
+        binding.decreaseage.setOnClickListener {
+            binding.agetvv.text=age--.toString()
+        }
+    }
 
 
     private fun calculateBmi(){

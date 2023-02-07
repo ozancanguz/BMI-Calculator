@@ -173,10 +173,11 @@
                 android:textSize="20sp"></TextView>
 
             <TextView
+                android:id="@+id/agetvv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="20"
+                android:text="17"
                 android:textColor="@color/white"
                 android:textSize="30sp"
                 android:textStyle="bold"></TextView>
