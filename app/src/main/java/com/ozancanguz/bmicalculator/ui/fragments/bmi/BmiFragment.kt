@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.ozancanguz.bmicalculator.R
 import com.ozancanguz.bmicalculator.databinding.FragmentBmiBinding
@@ -16,6 +17,7 @@ class BmiFragment : Fragment() {
     private var _binding: FragmentBmiBinding? = null
 
     private val binding get() = _binding!!
+
 
 
     override fun onCreateView(
@@ -42,9 +44,12 @@ class BmiFragment : Fragment() {
         // change weight function
         changeWeight()
 
+        // change gender background
+        changeGender()
 
         return view
     }
+
 
     private fun changeWeight() {
         var weight:Int=80
@@ -77,10 +82,6 @@ class BmiFragment : Fragment() {
             val directions=BmiFragmentDirections.actionBmiFragmentToResultFragment(bmi.toFloat())
             findNavController().navigate(directions)
 
-
-
-
-
         }
 
 
@@ -103,6 +104,20 @@ class BmiFragment : Fragment() {
 
         })
     }
+
+    private fun changeGender() {
+       binding.maleimg.setOnClickListener {
+           val malecolor=ContextCompat.getColor(requireContext(),R.color.malecolor)
+           binding.male.setBackgroundColor(malecolor)
+
+       }
+
+        val femaleColor=ContextCompat.getColor(requireContext(),R.color.pink)
+        binding.femaleimg.setOnClickListener {
+            binding.female.setBackgroundColor(femaleColor)
+        }
+    }
+
 
 
 }

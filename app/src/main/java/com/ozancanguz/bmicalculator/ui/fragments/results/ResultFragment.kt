@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.ozancanguz.bmicalculator.R
@@ -44,6 +45,8 @@ class ResultFragment : Fragment() {
 
         val bmi=args.bmi.toFloat().toString()
         if(bmi<= 16.toString()){
+            val thinColor=ContextCompat.getColor(requireContext(),R.color.thin)
+            binding.statustv.setTextColor(thinColor)
             binding.progressBar.visibility=View.VISIBLE
             binding.bmitv.text= args.bmi.toFloat().toString()
             binding.statustv.text=" Thinness"
@@ -56,6 +59,8 @@ class ResultFragment : Fragment() {
             binding.CommentTv.text="You have a normal body weight. Good Job !"
             binding.progressBar.visibility=View.INVISIBLE
         }else if(bmi>25.toString()){
+            val overweightcolor=ContextCompat.getColor(requireContext(),R.color.overweight)
+            binding.statustv.setTextColor(overweightcolor)
             binding.progressBar.visibility=View.VISIBLE
             binding.bmitv.text= args.bmi.toFloat().toString()
             binding.statustv.text="Overweight"
