@@ -59,7 +59,7 @@ class ResultFragment : Fragment() {
             binding.progressBar.visibility=View.VISIBLE
             binding.bmitv.text= args.bmi.toFloat().toString()
             binding.statustv.text="Overweight"
-            binding.CommentTv.text="You are very thin. You need to get some weight !"
+            binding.CommentTv.text="You are kinda overweight. You need lose some weight !"
             binding.progressBar.visibility=View.INVISIBLE
         }
 

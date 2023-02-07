@@ -32,17 +32,32 @@ class BmiFragment : Fragment() {
             findNavController().navigate(R.id.action_bmiFragment_to_resultFragment)
         }
 
+        // bmi calculation function
           calculateBmi()
 
 
+        // age changing function
         changeAge()
+
+        // change weight function
+        changeWeight()
 
 
         return view
     }
 
+    private fun changeWeight() {
+        var weight:Int=80
+        binding.increaseweight.setOnClickListener {
+            binding.weightTv.text=weight++.toString()
+        }
+        binding.decreaseweight.setOnClickListener {
+            binding.weightTv.text=weight--.toString()
+        }
+    }
+
     private fun changeAge() {
-        var age:Int=17
+        var age:Int=18
         binding.increaseage.setOnClickListener {
             binding.agetvv.text= age++.toString()
         }
@@ -55,9 +70,7 @@ class BmiFragment : Fragment() {
 
     private fun calculateBmi(){
 
-
         binding.calculatebtn.setOnClickListener {
-
             val weight=binding.weightTv.text.toString().toDouble()
             val height=binding.heighttv.text.toString().toDouble()/100
             val bmi=weight/(height*height)
