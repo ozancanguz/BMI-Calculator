@@ -9,10 +9,21 @@
         android:id="@+id/bmiFragment"
         android:name="com.ozancanguz.bmicalculator.ui.fragments.bmi.BmiFragment"
         android:label="Bmi Calculator"
-        tools:layout="@layout/fragment_bmi" />
+        tools:layout="@layout/fragment_bmi" >
+        <action
+            android:id="@+id/action_bmiFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
     <fragment
         android:id="@+id/resultFragment"
         android:name="com.ozancanguz.bmicalculator.ui.fragments.results.ResultFragment"
         android:label="Result"
-        tools:layout="@layout/fragment_result" />
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/action_resultFragment_to_bmiFragment"
+            app:destination="@id/bmiFragment" />
+        <argument
+            android:name="bmi"
+            app:argType="float" />
+    </fragment>
 </navigation>

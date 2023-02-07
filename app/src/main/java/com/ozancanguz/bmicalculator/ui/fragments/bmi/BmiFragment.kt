@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SeekBar
+import androidx.navigation.fragment.findNavController
 import com.ozancanguz.bmicalculator.R
 import com.ozancanguz.bmicalculator.databinding.FragmentBmiBinding
 
@@ -24,8 +26,57 @@ class BmiFragment : Fragment() {
         val view = binding.root
 
 
+        changeseekBar()
+
+        binding.calculatebtn.setOnClickListener {
+            findNavController().navigate(R.id.action_bmiFragment_to_resultFragment)
+        }
+
+          calculateBmi()
+
+
 
         return view
+    }
+
+
+
+    private fun calculateBmi(){
+
+
+        binding.calculatebtn.setOnClickListener {
+
+            val weight=binding.weightTv.text.toString().toDouble()
+            val height=binding.heighttv.text.toString().toDouble()/100
+            val bmi=weight/(height*height)
+            val directions=BmiFragmentDirections.actionBmiFragmentToResultFragment(bmi.toFloat())
+            findNavController().navigate(directions)
+
+
+
+
+
+        }
+
+
+    }
+
+
+    private fun changeseekBar() {
+        binding.seekBar.setOnSeekBarChangeListener(object :SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
+                binding.heighttv.text=p1.toString()
+            }
+
+            override fun onStartTrackingTouch(p0: SeekBar?) {
+
+            }
+
+            override fun onStopTrackingTouch(p0: SeekBar?) {
+
+            }
+
+        })
     }
 
 
